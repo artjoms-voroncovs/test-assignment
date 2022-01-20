@@ -1,3 +1,4 @@
+import { PostCardComponent } from './post-card/post-card.component';
 import { EffectsModule } from '@ngrx/effects';
 import { NgModule } from "@angular/core";
 import { BlogRoutingModule } from './blog-routing.module';
@@ -7,17 +8,22 @@ import { BlogEffects } from './store/blog.effects';
 import { BlogComponent } from './blog.component';
 import { PostsListComponent } from './posts-list/posts-list.component';
 import { CommonModule } from '@angular/common';
+import { MaterialModule } from '../shared/material.module';
+import { DialogComponent } from './dialog/dialog.component';
 
 @NgModule({
     declarations: [
         BlogComponent,
-        PostsListComponent
+        PostsListComponent,
+        PostCardComponent,
+        DialogComponent
     ],
     imports: [
         BlogRoutingModule,
         StoreModule.forFeature('blog', blogReducer),
         EffectsModule.forFeature([BlogEffects]),
-        CommonModule
+        CommonModule,
+        MaterialModule
     ],
     providers: []
 })

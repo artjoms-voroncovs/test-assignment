@@ -1,3 +1,4 @@
+import { ToolBarComponent } from './blog/toolbar/toolbar.component';
 import { API_URL, API_URL_DI_TOKEN } from './api';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -15,7 +16,8 @@ import { CommonModule } from '@angular/common';
 @NgModule({
   declarations: [
     AppComponent,
-    SideMenuComponent
+    SideMenuComponent,
+    ToolBarComponent
   ],
   imports: [
     BrowserModule,

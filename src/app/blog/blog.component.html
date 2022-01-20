@@ -1,3 +1,4 @@
-<div *ngIf='posts$'>
-    <app-posts-list [posts]='posts$ | async'></app-posts-list>
+<div class="app-blog" *ngIf='posts$ | async'>
+    <mat-spinner *ngIf='postsLoading$ | async'></mat-spinner>
+    <app-posts-list (postSelect)='onPostSelect($event)' [posts]='posts$ | async'></app-posts-list>
 </div>

@@ -9,10 +9,6 @@
             </mat-list-item>
         </mat-nav-list>
     </mat-drawer>
-    <mat-toolbar class='app-toolbar'>
-        <button mat-fab color='primary' type='button' mat-button (click)='drawer.toggle()'>
-            <mat-icon>menu</mat-icon>
-        </button>
-    </mat-toolbar>
+    <app-toolbar (menuIconClick)='drawer.toggle()' ></app-toolbar>
     <ng-content></ng-content>
 </mat-drawer-container>
