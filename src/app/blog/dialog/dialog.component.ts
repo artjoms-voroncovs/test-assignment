@@ -11,7 +11,7 @@ import { Observable } from 'rxjs';
 export class DialogComponent {
     constructor(
         public dialogRef: MatDialogRef<DialogComponent>,
-        @Inject(MAT_DIALOG_DATA) public data: Post ,
+        @Inject(MAT_DIALOG_DATA) public data: Observable<Post | null> ,
     ) { }
 
     close(): void {

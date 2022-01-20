@@ -3,7 +3,7 @@ import { Component, OnInit, OnDestroy } from "@angular/core";
 import { blogPageActions } from './store/actions';
 import { Store } from '@ngrx/store';
 import { selectBlogPosts, selectCurrentPost, selectPostsLoading } from './store/selectors/blog.selectors';
-import { Observable, Subscriber, Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { Post } from './store/shared/types';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from './dialog/dialog.component';
@@ -12,12 +12,11 @@ import { DialogComponent } from './dialog/dialog.component';
     templateUrl: './blog.component.html',
     styleUrls: ['./blog.component.scss']
 })
-export class BlogComponent implements OnInit, OnDestroy {
+export class BlogComponent implements OnInit {
 
     posts$: Observable<Post[]> = new Observable<Post[]>();
     postsLoading$: Observable<boolean> = new Observable<boolean>();
-    currentPost!: Post;
-    currentPostSubscribe!: Subscription;
+    currentPost$: Observable<Post | null> = new Observable<Post | null>();
 
     constructor(
         private store: Store,
@@ -28,28 +27,18 @@ export class BlogComponent implements OnInit, OnDestroy {
         this.store.dispatch(blogPageActions.loadPosts());
         this.posts$ = this.store.select(selectBlogPosts);
         this.postsLoading$ = this.store.select(selectPostsLoading);
-
-        this.currentPostSubscribe = this.store.select(selectCurrentPost).subscribe((post: Post | null) => {
-            if (post) {
-                this.currentPost = post;
-                this.openDialog();
-                console.log('postOpened')
-            }
-        });
-    }
-
-    ngOnDestroy(){
-        this.currentPostSubscribe.unsubscribe()
+        this.currentPost$ = this.store.select(selectCurrentPost);
     }
 
     onPostSelect($event: any) {
         this.store.dispatch(blogPageActions.selectPost({ currentPostId: $event }));
+        this.openDialog();
     }
 
     openDialog(): void {
         const dialogRef = this.dialog.open(DialogComponent, {
             width: '700px',
-            data: this.currentPost
+            data: this.currentPost$
         })
 
         dialogRef.afterClosed().subscribe(result => {

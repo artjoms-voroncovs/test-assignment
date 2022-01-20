@@ -1,7 +1,10 @@
 .app-toolbar {
+    position: fixed;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: end;
     width: 100%;
+    left: 0px;
+    z-index: 1;
 }

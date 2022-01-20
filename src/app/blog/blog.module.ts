@@ -1,3 +1,4 @@
+import { DialogContentComponent } from './dialog-content/dialog-content.component';
 import { PostCardComponent } from './post-card/post-card.component';
 import { EffectsModule } from '@ngrx/effects';
 import { NgModule } from "@angular/core";
@@ -16,7 +17,8 @@ import { DialogComponent } from './dialog/dialog.component';
         BlogComponent,
         PostsListComponent,
         PostCardComponent,
-        DialogComponent
+        DialogComponent,
+        DialogContentComponent
     ],
     imports: [
         BlogRoutingModule,
