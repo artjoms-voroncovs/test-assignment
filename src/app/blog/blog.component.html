@@ -1,0 +1,3 @@
+<div *ngIf='posts$'>
+    <app-posts-list [posts]='posts$ | async'></app-posts-list>
+</div>
