@@ -1,5 +1,5 @@
-import { Observable } from 'rxjs';
-import { Component, OnInit, ViewChild, AfterViewInit } from "@angular/core";
+import { Observable, Subscription } from 'rxjs';
+import { Component, OnInit, ViewChild, AfterViewInit, OnDestroy } from "@angular/core";
 import { Store } from '@ngrx/store';
 import { GuestInvite } from '../state/shared/types';
 import { selectGuestInvites } from '../state/selectors/guest-book.selectors';
@@ -13,12 +13,13 @@ import { MatDialog } from '@angular/material/dialog';
     templateUrl: './guest-list.component.html',
     styleUrls: ['./guest-list.component.scss'],
 })
-export class GuestListComponent implements OnInit, AfterViewInit {
+export class GuestListComponent implements OnInit, AfterViewInit, OnDestroy {
 
     guestsInvites$!: Observable<GuestInvite[]>
     guestsInvites!: GuestInvite[];
     displayedColumns: string[] = ['id', 'name', 'surname', 'email', 'author'];
     dataSource!: MatTableDataSource<GuestInvite>;
+    guestsInvitesSubscription!: Subscription
 
     @ViewChild(MatSort) sort!: MatSort;
 
@@ -30,14 +31,19 @@ export class GuestListComponent implements OnInit, AfterViewInit {
     ngOnInit() {
         this.guestsInvites$ = this.store.select(selectGuestInvites);
 
-        this.guestsInvites$.subscribe((invites: GuestInvite[]) => {
+        this.guestsInvitesSubscription = this.guestsInvites$.subscribe((invites: GuestInvite[]) => {
             this.guestsInvites = invites;
             this.dataSource = new MatTableDataSource<GuestInvite>(invites);
+            this.dataSource.sort = this.sort;
         })
     }
 
     ngAfterViewInit() {
         this.dataSource.sort = this.sort;
+    }
+
+    ngOnDestroy(){
+        this.guestsInvitesSubscription.unsubscribe();
     }
 
     applyFilter(event: Event) {
@@ -46,13 +52,9 @@ export class GuestListComponent implements OnInit, AfterViewInit {
     }
 
     openDialog(inviteId: number): void {
-        const dialogRef = this.dialog.open(DialogComponent, {
+        this.dialog.open(DialogComponent, {
             width: '700px',
             data: this.guestsInvites.find((invite: GuestInvite) => inviteId === invite.id)
-        })
-
-        dialogRef.afterClosed().subscribe(() => {
-
         })
     }
 }
