@@ -8,12 +8,14 @@ import { MaterialModule } from '../shared/material.module';
 import { GuestBookComponent } from './guest-book.component';
 import { GuestBookFormComponent } from './guest-book-form/guest-book-form.component';
 import { GuestListComponent } from './guest-list/guest-list.component';
+import { DialogComponent } from './dialog/dialog.component';
 
 @NgModule({
     declarations: [
         GuestBookComponent,
         GuestBookFormComponent,
-        GuestListComponent
+        GuestListComponent,
+        DialogComponent
     ],
     imports: [
         CommonModule,

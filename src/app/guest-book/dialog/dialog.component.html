@@ -5,5 +5,18 @@
         </mat-icon>
     </button>
 </div>
-<app-dialog-content *ngIf="data" [post]='data.currentPost | async' [comments]='data.comments | async'>
-</app-dialog-content>
+<div class='app-dialog-title' mat-dialog-title>
+    <h1>Guest with id #{{data.id}}</h1>
+</div>
+<div class='app-dialog-subtitle' mat-dialog-subtitle>
+    <span>Name, Surname:</span>
+    <h2> {{data.name}} {{data.surname}}</h2>
+    <span>Email:</span>
+    <h2>{{data.email}}</h2>
+    <span>Invite author:</span>
+    <h2>{{data.author}}</h2>
+</div>
+<div mat-dialog-content>
+    <span>Message:</span>    
+    <h2 class="app-post-body">{{data.message}}</h2>
+</div>

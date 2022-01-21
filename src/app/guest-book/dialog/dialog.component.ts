@@ -1,7 +1,7 @@
-import { Post, Comment } from './../store/shared/types';
 import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { Observable } from 'rxjs';
+import { GuestInvite } from '../state/shared/types';
 
 @Component({
     selector: 'app-dialog',
@@ -11,7 +11,7 @@ import { Observable } from 'rxjs';
 export class DialogComponent {
     constructor(
         public dialogRef: MatDialogRef<DialogComponent>,
-        @Inject(MAT_DIALOG_DATA) public data: any ,
+        @Inject(MAT_DIALOG_DATA) public data: GuestInvite ,
     ) { }
 
     close(): void {
