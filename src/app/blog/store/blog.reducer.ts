@@ -56,5 +56,31 @@ export const blogReducer = createReducer<BlogState>(
             ...state,
             currentPostId: null
         }
+    }),
+    on(blogPageActions.loadComments, (state): BlogState => {
+        return {
+            ...state,
+            commentsLoading: true
+        }
+    }),
+    on(blogApiActions.loadCommentsSuccess, (state, action): BlogState => {
+        return {
+            ...state,
+            comments: action.comments,
+            commentsLoading: false
+        }
+    }),
+    on(blogApiActions.loadCommentsFailure, (state, action): BlogState => {
+        return {
+            ...state,
+            commentsLoading: false,
+            error: action.error
+        }
+    }),
+    on(blogPageActions.clearComments, (state, action): BlogState => {
+        return {
+            ...state,
+            comments: []
+        }
     })
 );

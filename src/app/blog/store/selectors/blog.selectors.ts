@@ -28,3 +28,17 @@ export const selectPostsLoading = createSelector(
         return state.postsLoading;
     }
 );
+
+export const selectComments = createSelector(
+    selectBlogFeatureState,
+    (state: BlogState) => {
+        return state.comments;
+    }
+)
+
+export const selectCommentsLoading = createSelector(
+    selectBlogFeatureState,
+    (state: BlogState) => {
+        return state.commentsLoading;
+    }
+)

@@ -1,3 +1,4 @@
+import { PostPageComponent } from './post-page/post-page.component';
 import { DialogContentComponent } from './dialog-content/dialog-content.component';
 import { PostCardComponent } from './post-card/post-card.component';
 import { EffectsModule } from '@ngrx/effects';
@@ -18,7 +19,8 @@ import { DialogComponent } from './dialog/dialog.component';
         PostsListComponent,
         PostCardComponent,
         DialogComponent,
-        DialogContentComponent
+        DialogContentComponent,
+        PostPageComponent
     ],
     imports: [
         BlogRoutingModule,
@@ -27,6 +29,6 @@ import { DialogComponent } from './dialog/dialog.component';
         CommonModule,
         MaterialModule
     ],
-    providers: []
+    providers: [],
 })
 export class BlogModule { }

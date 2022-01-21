@@ -24,4 +24,17 @@ export class BlogEffects {
             );
     });
 
+    loadComments$ = createEffect(() => {
+        return this.actions$
+            .pipe(
+                ofType(blogPageActions.loadComments),
+                mergeMap((action) => this.blogService.loadComments(action.postId)
+                    .pipe(
+                        map(comments => blogApiActions.loadCommentsSuccess({ comments })),
+                        catchError(error => of(blogApiActions.loadCommentsFailure({ error })))
+                    )
+                )
+            );
+    });
+
 }

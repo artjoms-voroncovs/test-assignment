@@ -1,4 +1,5 @@
-import { Component, Input } from "@angular/core";
+import { Comment } from './../store/shared/types';
+import { Component, Input, OnInit } from "@angular/core";
 import { Post } from '../store/shared/types';
 
 @Component({
@@ -7,5 +8,6 @@ import { Post } from '../store/shared/types';
     styleUrls: ['./dialog-content.component.scss']
 })
 export class DialogContentComponent {
-    @Input() data: any; 
+    @Input() post: Post | null = null; 
+    @Input() comments: Comment[] | null = [];
 }

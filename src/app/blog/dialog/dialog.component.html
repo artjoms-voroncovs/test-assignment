@@ -5,4 +5,5 @@
         </mat-icon>
     </button>
 </div>
-<app-dialog-content [data]='data | async'></app-dialog-content>
+<app-dialog-content *ngIf="data" [post]='data.currentPost | async' [comments]='data.comments | async'>
+</app-dialog-content>

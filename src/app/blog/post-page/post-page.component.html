@@ -1,0 +1,21 @@
+<div class='app-post-page' *ngIf='post$ | async'>
+    <h1>Post:</h1>
+    <h2>{{(post$ | async)!.title}}</h2>
+    <br />
+    <p>{{(post$ | async)!.body}}</p>
+    <div class='app-post-page-comments'>
+        <h2>Comments: </h2>
+        <div *ngIf='(commentsLoading$ | async) === false'>
+            <div *ngFor='let comment of (comments$ | async); let i = index'>
+                <mat-card *ngIf="i < commentsLimit" class="app-post-page-comment-card">
+                    <p>{{comment.name}}</p>
+                    <p>{{comment.email}}</p>
+                    <p>{{comment.body}}</p>
+                </mat-card>
+            </div>
+            <button *ngIf='commentsLimit < (comments$ | async)!.length' (click)='showMore()' mat-button>Show
+                More</button>
+        </div>
+        <mat-spinner *ngIf='(commentsLoading$ | async) === true'></mat-spinner>
+    </div>
+</div>

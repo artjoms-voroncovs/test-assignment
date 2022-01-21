@@ -1,6 +1,6 @@
-import { Post } from './../store/shared/types';
+import { Post, Comment } from './../store/shared/types';
 import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -11,7 +11,7 @@ import { Observable } from 'rxjs';
 export class DialogComponent {
     constructor(
         public dialogRef: MatDialogRef<DialogComponent>,
-        @Inject(MAT_DIALOG_DATA) public data: Observable<Post | null> ,
+        @Inject(MAT_DIALOG_DATA) public data: any ,
     ) { }
 
     close(): void {
