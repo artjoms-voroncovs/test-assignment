@@ -1,5 +1,4 @@
 import { PostPageComponent } from './post-page/post-page.component';
-import { DialogContentComponent } from './dialog-content/dialog-content.component';
 import { PostCardComponent } from './post-card/post-card.component';
 import { EffectsModule } from '@ngrx/effects';
 import { NgModule } from "@angular/core";
@@ -11,15 +10,12 @@ import { BlogComponent } from './blog.component';
 import { PostsListComponent } from './posts-list/posts-list.component';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from '../shared/material.module';
-import { DialogComponent } from './dialog/dialog.component';
 
 @NgModule({
     declarations: [
         BlogComponent,
         PostsListComponent,
         PostCardComponent,
-        DialogComponent,
-        DialogContentComponent,
         PostPageComponent
     ],
     imports: [
