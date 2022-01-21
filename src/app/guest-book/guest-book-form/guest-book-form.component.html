@@ -17,11 +17,13 @@
     <mat-form-field class='mat-form-field' appearance='fill'>
         <mat-label>Message</mat-label>
         <textarea formControlName='message' matInput></textarea>
+        <mat-error *ngIf="message.invalid">{{getErrorMessage(message)}}</mat-error>
     </mat-form-field>
 
     <mat-form-field class='mat-form-field' appearance='fill'>
         <mat-label>Author</mat-label>
         <input formControlName='author' matInput>
+        <mat-error *ngIf="author.invalid">{{getErrorMessage(author)}}</mat-error>
     </mat-form-field>
     <button mat-raised-button color='primary'>Submit</button>
 </form>
