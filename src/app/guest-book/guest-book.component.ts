@@ -1,9 +1,11 @@
 import { Component } from "@angular/core";
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
-    template: 'guest book works!'
+    templateUrl: './guest-book.component.html',
+    styleUrls: ['./guest-book.component.scss']
 })
 export class GuestBookComponent {
     constructor(
@@ -11,6 +13,8 @@ export class GuestBookComponent {
         public route: ActivatedRoute,
         public location: Location
         ) { }
+
+
 
         //ngOnInit() {
             //this.currentPost$ = this.store.select(selectCurrentPost);
@@ -35,11 +39,11 @@ export class GuestBookComponent {
         //     this.currentPostSubscription.unsubscribe();
         // }
     
-        onPostSelect($event: any) {
+        //onPostSelect($event: any) {
             //this.store.dispatch(blogPageActions.selectPost({ currentPostId: $event }));
             // Replace state without component rerendering.
             //this.location.replaceState('/blog/post/' + $event);
-        }
+        //}
     
         // openDialog(): void {
         //     const dialogRef = this.dialog.open(DialogComponent, {

@@ -1,0 +1,27 @@
+<form [formGroup]='guestBookForm' (ngSubmit)='onSubmit()' class='app-guest-book-form'>
+    <mat-form-field class='mat-form-field' appearance='fill'>
+        <mat-label>Name</mat-label>
+        <input formControlName='name' matInput>
+    </mat-form-field>
+
+    <mat-form-field class='mat-form-field' appearance='fill'>
+        <mat-label>Surname</mat-label>
+        <input formControlName='surname' matInput>
+    </mat-form-field>
+
+    <mat-form-field class='mat-form-field' appearance='fill'>
+        <mat-label>Email</mat-label>
+        <input formControlName='email' matInput>
+    </mat-form-field>
+
+    <mat-form-field class='mat-form-field' appearance='fill'>
+        <mat-label>Message</mat-label>
+        <textarea formControlName='message' matInput></textarea>
+    </mat-form-field>
+
+    <mat-form-field class='mat-form-field' appearance='fill'>
+        <mat-label>Author</mat-label>
+        <input formControlName='author' matInput>
+    </mat-form-field>
+    <button mat-raised-button color='primary'>Submit</button>
+</form>
