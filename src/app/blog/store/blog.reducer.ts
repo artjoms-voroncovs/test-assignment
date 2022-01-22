@@ -12,7 +12,7 @@ export interface BlogState {
     error: string
 }
 
-const initialState: BlogState = {
+export const initialState: BlogState = {
     posts: [],
     comments: [],
     currentPostId: null,

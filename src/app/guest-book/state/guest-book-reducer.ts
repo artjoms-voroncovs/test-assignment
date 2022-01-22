@@ -6,33 +6,8 @@ export interface GuestBookState {
     guestInvites: GuestInvite[]
 };
 
-const initialState: GuestBookState = {
-    guestInvites: [
-        {
-            name: 'atest',
-            surname: 'test',
-            email: 'test',
-            message: 'test',
-            author: 'test',
-            id: 0,
-        },
-        {
-            name: 'ctest',
-            surname: 'test',
-            email: 'test',
-            message: 'test',
-            author: 'test',
-            id: 1,
-        },
-        {
-            name: 'btest',
-            surname: 'test',
-            email: 'test',
-            message: 'test',
-            author: 'test',
-            id: 2,
-        }
-    ]
+export const initialState: GuestBookState = {
+    guestInvites: []
 };
 
 export const guestBookReducer = createReducer(
@@ -40,7 +15,7 @@ export const guestBookReducer = createReducer(
         // Increment id value
         const guestInvite: GuestInvite = {
             ...action.guestInvite,
-            id: state.guestInvites[state.guestInvites.length - 1].id + 1
+            id: state.guestInvites.length ? state.guestInvites[state.guestInvites.length - 1].id + 1 : 0
         }
         return {
             ...state,
