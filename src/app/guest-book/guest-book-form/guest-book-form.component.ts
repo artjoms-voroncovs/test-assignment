@@ -35,8 +35,6 @@ export class GuestBookFormComponent {
     }
 
     getErrorMessage(field: FormControl): string {
-
-        console.log(field)
         if (field.hasError('required')) {
             return 'You must enter the value.'
         }
