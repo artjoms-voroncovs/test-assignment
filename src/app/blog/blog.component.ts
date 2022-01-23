@@ -1,10 +1,10 @@
 
 import { Component, OnInit } from "@angular/core";
-import { blogPageActions } from './store/actions';
+import { blogPageActions } from './state/actions';
 import { Store } from '@ngrx/store';
-import { selectBlogPosts, selectPostsLoading } from './store/selectors/blog.selectors';
+import { selectBlogPosts, selectPostsLoading } from './state/selectors/blog.selectors';
 import { Observable } from 'rxjs';
-import { Post } from './store/shared/types';
+import { Post } from './state/shared/types';
 
 @Component({
     templateUrl: './blog.component.html',

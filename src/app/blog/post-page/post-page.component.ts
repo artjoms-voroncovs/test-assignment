@@ -1,12 +1,12 @@
-import { clearComments } from './../store/actions/blog-page.actions';
-import { Comment } from './../store/shared/types';
-import { selectCurrentPost, selectComments, selectCommentsLoading } from './../store/selectors/blog.selectors';
+import { clearComments } from '../state/actions/blog-page.actions';
+import { Comment } from '../state/shared/types';
+import { selectCurrentPost, selectComments, selectCommentsLoading } from '../state/selectors/blog.selectors';
 import { Component, AfterViewInit, OnInit, OnDestroy } from "@angular/core";
 import { ActivatedRoute } from '@angular/router';
-import { blogPageActions } from '../store/actions';
+import { blogPageActions } from '../state/actions';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { Post } from '../store/shared/types';
+import { Post } from '../state/shared/types';
 
 @Component({
     templateUrl: './post-page.component.html',

@@ -2,7 +2,7 @@ import { API_URL_DI_TOKEN } from './../api';
 import { Injectable, Inject } from "@angular/core";
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Post, Comment } from './store/shared/types';
+import { Post, Comment } from './state/shared/types';
 
 
 @Injectable({

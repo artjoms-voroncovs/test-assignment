@@ -1,8 +1,8 @@
 import { Observable } from 'rxjs';
 import { Component, Input, Output, EventEmitter, OnInit } from "@angular/core";
-import { Post } from '../store/shared/types';
+import { Post } from '../state/shared/types';
 import { Store } from '@ngrx/store';
-import { selectBlogPosts } from '../store/selectors/blog.selectors';
+import { selectBlogPosts } from '../state/selectors/blog.selectors';
 
 @Component({
     selector: 'app-posts-list',

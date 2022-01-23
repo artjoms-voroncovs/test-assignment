@@ -1,5 +1,5 @@
 import { Component, Input } from "@angular/core";
-import { Post } from '../store/shared/types';
+import { Post } from '../state/shared/types';
 
 @Component({
     selector: 'app-post-card',
