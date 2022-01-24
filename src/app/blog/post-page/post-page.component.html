@@ -7,14 +7,13 @@
         <h2>Comments: </h2>
         <div *ngIf='(commentsLoading$ | async) === false'>
             <div *ngFor='let comment of (comments$ | async); let i = index'>
-                <mat-card *ngIf="i < commentsLimit" class="app-post-page-comment-card">
-                    <p>{{comment.name}}</p>
-                    <p>{{comment.email}}</p>
-                    <p>{{comment.body}}</p>
-                </mat-card>
+                <div *ngIf="i < commentsLimit">
+                    <app-comment-card [comment]='comment'></app-comment-card>
+                </div>
             </div>
-            <button *ngIf='commentsLimit < (comments$ | async)!.length' (click)='showMore()' mat-button>Show
-                More</button>
+            <button *ngIf='commentsLimit < (comments$ | async)!.length' (click)='showMore()' mat-button>
+                Show More
+            </button>
         </div>
         <mat-spinner *ngIf='(commentsLoading$ | async) === true'></mat-spinner>
     </div>
