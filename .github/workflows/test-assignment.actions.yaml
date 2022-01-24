@@ -14,7 +14,7 @@ jobs:
       - run: npm install
       - run: npm ci
       - run: npm test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
-      - run: npm run build --configuration production
+      - run: npm run build
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
